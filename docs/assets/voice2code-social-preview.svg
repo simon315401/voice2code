@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" fill="none">
+  <rect width="1280" height="640" fill="#0E1117"/>
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1120" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#182033"/>
+      <stop offset="1" stop-color="#0F6B5B"/>
+    </linearGradient>
+  </defs>
+  <rect x="44" y="44" width="1192" height="552" rx="32" fill="url(#bg)" stroke="#2E374D" stroke-width="2"/>
+  <text x="96" y="158" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="700">Voice2Code</text>
+  <text x="96" y="208" fill="#C6D2E1" font-family="Inter, Arial, sans-serif" font-size="26">macOS Quick Action voice-to-instruction refiner for developer workflows</text>
+
+  <rect x="96" y="276" width="330" height="152" rx="24" fill="#121826" stroke="#34415C" stroke-width="2"/>
+  <text x="124" y="318" fill="#5CC8FF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Input</text>
+  <text x="124" y="364" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="600">Selected rough text</text>
+  <text x="124" y="402" fill="#AAB6C6" font-family="Inter, Arial, sans-serif" font-size="20">voice dictation, noisy notes, unclear tasks</text>
+
+  <rect x="474" y="248" width="332" height="208" rx="24" fill="#141D2A" stroke="#39526D" stroke-width="2"/>
+  <text x="502" y="290" fill="#42D392" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Core flow</text>
+  <text x="502" y="336" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Quick Action</text>
+  <text x="502" y="372" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">→ Intent Router</text>
+  <text x="502" y="408" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">→ Resolved Contract</text>
+  <text x="502" y="444" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">→ LLM Generation</text>
+
+  <rect x="854" y="276" width="330" height="152" rx="24" fill="#171523" stroke="#564B72" stroke-width="2"/>
+  <text x="882" y="318" fill="#B78CFF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Output</text>
+  <text x="882" y="364" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="600">Cleaner, structured text</text>
+  <text x="882" y="402" fill="#AAB6C6" font-family="Inter, Arial, sans-serif" font-size="20">ready for tasks, docs, issues, prompts</text>
+
+  <path d="M426 352H474" stroke="#94A3B8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M806 352H854" stroke="#94A3B8" stroke-width="6" stroke-linecap="round"/>
+
+  <text x="96" y="520" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Highlights</text>
+  <text x="96" y="564" fill="#D6DFEA" font-family="Inter, Arial, sans-serif" font-size="22">• Cross-app Quick Action  • Bilingual contracts  • Provider-neutral execution</text>
+</svg>
