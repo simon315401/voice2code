@@ -137,6 +137,10 @@ Main references:
 - [Implementation Checklist](docs/Voice2Code_Implementation_Checklist.md)
 - [Project Closeout Checklist](docs/Voice2Code_Project_Closeout_Checklist.md)
 
+## Demo
+
+![Voice2Code demo flow](docs/assets/voice2code-demo.svg)
+
 ## What It Does
 
 Voice2Code is designed for the common workflow:

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" fill="none">
+  <rect width="1440" height="900" fill="#0F1115"/>
+  <rect x="56" y="56" width="1328" height="788" rx="32" fill="#171A21" stroke="#2A3040" stroke-width="2"/>
+  <text x="96" y="128" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="700">Voice2Code</text>
+  <text x="96" y="176" fill="#A9B3C1" font-family="Inter, Arial, sans-serif" font-size="24">macOS Quick Action voice-to-instruction refiner</text>
+
+  <rect x="96" y="240" width="360" height="180" rx="24" fill="#1F2430" stroke="#3A4357" stroke-width="2"/>
+  <text x="128" y="292" fill="#5CC8FF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">1. Select rough text</text>
+  <text x="128" y="338" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600">“帮我把 user 接口改一下，</text>
+  <text x="128" y="376" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600">超时的话重试三次”</text>
+
+  <rect x="540" y="240" width="360" height="180" rx="24" fill="#1C2A23" stroke="#325243" stroke-width="2"/>
+  <text x="572" y="292" fill="#42D392" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">2. Trigger Quick Action</text>
+  <text x="572" y="346" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700">AI提纯指令</text>
+  <text x="572" y="384" fill="#A9B3C1" font-family="Inter, Arial, sans-serif" font-size="22">Cross-app entry point on macOS</text>
+
+  <rect x="984" y="240" width="304" height="180" rx="24" fill="#261F33" stroke="#4C3A67" stroke-width="2"/>
+  <text x="1016" y="292" fill="#B78CFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">3. Voice2Code.app</text>
+  <text x="1016" y="338" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">Setup / Provider / Network</text>
+  <text x="1016" y="374" fill="#A9B3C1" font-family="Inter, Arial, sans-serif" font-size="22">Minimal control shell</text>
+
+  <rect x="140" y="552" width="1160" height="208" rx="28" fill="#131722" stroke="#293246" stroke-width="2"/>
+  <text x="176" y="608" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700">4. Structured refinement core</text>
+
+  <rect x="176" y="642" width="216" height="82" rx="18" fill="#1D2433"/>
+  <text x="210" y="690" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Intent Router</text>
+
+  <rect x="430" y="642" width="216" height="82" rx="18" fill="#1D2433"/>
+  <text x="454" y="690" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Resolved Contract</text>
+
+  <rect x="684" y="642" width="216" height="82" rx="18" fill="#1D2433"/>
+  <text x="720" y="690" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Prompt Assembly</text>
+
+  <rect x="938" y="642" width="326" height="82" rx="18" fill="#1D2433"/>
+  <text x="976" y="690" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Gemini / OpenAI / Doubao</text>
+
+  <path d="M456 330H520" stroke="#7D8798" stroke-width="6" stroke-linecap="round"/>
+  <path d="M900 330H964" stroke="#7D8798" stroke-width="6" stroke-linecap="round"/>
+  <path d="M1136 420V500H720V540" stroke="#7D8798" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M392 683H430" stroke="#7D8798" stroke-width="6" stroke-linecap="round"/>
+  <path d="M646 683H684" stroke="#7D8798" stroke-width="6" stroke-linecap="round"/>
+  <path d="M900 683H938" stroke="#7D8798" stroke-width="6" stroke-linecap="round"/>
+
+  <rect x="1048" y="96" width="240" height="92" rx="18" fill="#0E7C66"/>
+  <text x="1080" y="136" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Result</text>
+  <text x="1080" y="168" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="18">Clean, structured, reusable text</text>
+</svg>
