@@ -1,0 +1,8 @@
+dist/
+logs/
+__pycache__/
+*.pyc
+.DS_Store
+tmp_llm_eval_*.json
+tests/test_out*.txt
+*.log

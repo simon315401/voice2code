@@ -1,0 +1,1073 @@
+[
+  {
+    "id": "question_checklist",
+    "input": "有对应的整个阶段的 checklist 吗 这样才有利于推进",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "question"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_any": [
+      "?",
+      "？"
+    ],
+    "must_not_contain": [
+      "收到",
+      "我会",
+      "后续将"
+    ]
+  },
+  {
+    "id": "task_timeout_retry",
+    "input": "如果接口返回500就先判断是不是超时 超时就重试三次 不是超时就直接报错给前端",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "task",
+      "general"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_all": [
+      "500",
+      "重试"
+    ],
+    "must_contain_any": [
+      "3",
+      "三"
+    ],
+    "must_not_contain": [
+      "收到",
+      "我会"
+    ]
+  },
+  {
+    "id": "task_plain_refine",
+    "input": "如果接口返回500就先判断是不是超时 超时就重试三次 不是超时就直接报错给前端",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "task",
+      "general"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_all": [
+      "500",
+      "超时",
+      "重试"
+    ],
+    "must_contain_any": [
+      "报错",
+      "错误",
+      "向前端返回"
+    ],
+    "must_not_contain": [
+      "- [ ]",
+      "Issue:"
+    ]
+  },
+  {
+    "id": "discussion_confirm_architecture",
+    "input": "我理解现在架构分两层 第一层意图识别 第二层AI转写 你确认一下这个理解是不是对的",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "discussion_confirm",
+      "question"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_not_contain": [
+      "收到",
+      "我会",
+      "- [ ]"
+    ],
+    "must_contain_groups": [
+      [
+        "理解",
+        "架构"
+      ],
+      [
+        "确认",
+        "是否准确",
+        "是不是"
+      ]
+    ]
+  },
+  {
+    "id": "doc_architecture",
+    "input": "整理架构设计文档 当前架构分为两层 第一层负责意图分析 第二层负责AI转写 请评估是否还需要补充其他层级或模块",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "doc",
+      "task",
+      "discussion_confirm"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_groups": [
+      [
+        "两层",
+        "第一层"
+      ],
+      [
+        "两层",
+        "第二层"
+      ]
+    ],
+    "must_contain_all": [
+      "意图",
+      "AI"
+    ],
+    "must_not_contain": [
+      "知识库",
+      "中间层",
+      "校验层"
+    ]
+  },
+  {
+    "id": "doc_action_refine",
+    "input": "整理配套的架构设计文档 当前架构分为两层 第一层负责意图分析 第二层负责AI转写 请补充清楚文档应该产出什么内容",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "doc",
+      "task"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_all": [
+      "文档",
+      "意图分析",
+      "AI转写"
+    ],
+    "must_contain_groups": [
+      [
+        "两层",
+        "第一层"
+      ],
+      [
+        "两层",
+        "第二层"
+      ]
+    ],
+    "must_contain_any": [
+      "产出",
+      "包含",
+      "内容"
+    ],
+    "must_not_contain": [
+      "知识库",
+      "中间层",
+      "校验层"
+    ]
+  },
+  {
+    "id": "feedback_meta_style",
+    "input": "你后续沟通直接进入任务 不要用太多寒暄 也不要写没必要的总结",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "feedback_meta",
+      "general"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_not_contain": [
+      "收到",
+      "我会",
+      "后续将",
+      "建议你",
+      "可以考虑"
+    ],
+    "must_contain_groups": [
+      [
+        "后续",
+        "接下来"
+      ],
+      [
+        "直接进入任务",
+        "进入任务"
+      ],
+      [
+        "不要",
+        "寒暄",
+        "总结"
+      ]
+    ]
+  },
+  {
+    "id": "preserve_terms",
+    "input": "preserve: 用 gemini-3.1-flash-lite-preview 分析 Voice2Code_Architecture.md 的结构",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "task",
+      "doc",
+      "general"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_all": [
+      "gemini-3.1-flash-lite-preview",
+      "Voice2Code_Architecture.md"
+    ],
+    "must_not_contain": [
+      "gemini-1.5"
+    ]
+  },
+  {
+    "id": "general_soft_feedback",
+    "input": "这个实现我觉得方向差不多 但是逻辑顺序还可以再理一下 别太快下结论",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "general"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_all": [
+      "方向"
+    ],
+    "must_contain_any": [
+      "逻辑顺序",
+      "逻辑"
+    ],
+    "must_not_contain": [
+      "确认这个理解是否正确",
+      "- [ ]",
+      "请分析",
+      "请补充",
+      "请协助",
+      "请确认"
+    ]
+  },
+  {
+    "id": "general_focus_refine",
+    "input": "这个实现方向差不多 但是逻辑顺序还需要再理一下 不要太快下结论",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "general"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_groups": [
+      [
+        "方向"
+      ],
+      [
+        "逻辑顺序",
+        "逻辑"
+      ],
+      [
+        "不要",
+        "下结论",
+        "过早",
+        "暂缓下定论",
+        "过早锁定方案",
+        "暂缓",
+        "暂不下结论"
+      ]
+    ],
+    "must_not_contain": [
+      "确认这个理解是否正确",
+      "- [ ]",
+      "请分析",
+      "请补充",
+      "请协助",
+      "请确认"
+    ]
+  },
+  {
+    "id": "general_risk_boundary_refine",
+    "input": "目前这个方案基本可行 但是风险边界和验证路径还没有说清楚 先别急着推进",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "general"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_groups": [
+      [
+        "基本可行",
+        "可行"
+      ],
+      [
+        "风险边界",
+        "验证路径"
+      ],
+      [
+        "先别",
+        "暂缓",
+        "不要急着推进",
+        "暂停推进"
+      ]
+    ],
+    "must_not_contain": [
+      "确认这个理解是否正确",
+      "- [ ]",
+      "Issue:",
+      "请分析",
+      "请补充",
+      "请协助",
+      "请确认"
+    ]
+  },
+  {
+    "id": "general_reservation_opinion_refine",
+    "input": "整体方向没问题 但是实现成本和维护代价还要再评估 这个点先保留意见",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "general"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_groups": [
+      [
+        "方向没问题",
+        "整体方向",
+        "方向可行",
+        "整体方案方向可行",
+        "整体方向可行"
+      ],
+      [
+        "实现成本",
+        "维护代价",
+        "开发成本",
+        "维护成本"
+      ],
+      [
+        "保留意见",
+        "继续评估",
+        "进一步评估",
+        "仍需评估",
+        "需要评估",
+        "暂不下结论",
+        "先不下结论",
+        "先不定论",
+        "进一步讨论",
+        "暂缓进入开发阶段",
+        "暂缓推进",
+        "暂缓决策",
+        "暂缓判断"
+      ]
+    ],
+    "must_not_contain": [
+      "确认这个理解是否正确",
+      "- [ ]",
+      "Issue:",
+      "请分析",
+      "请补充",
+      "请协助",
+      "请确认"
+    ]
+  },
+  {
+    "id": "general_risk_warning_refine",
+    "input": "我的判断是这个改法可以试 但是回滚方案和兼容风险还没兜住 现阶段还不适合直接上线 更稳妥的是先把风险清单补齐",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "general"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_groups": [
+      [
+        "回滚方案",
+        "兼容风险",
+        "回滚策略",
+        "兼容性风险"
+      ],
+      [
+        "风险清单",
+        "补齐",
+        "更稳妥",
+        "补齐风险清单"
+      ],
+      [
+        "不适合直接上线",
+        "暂不直接上线",
+        "先不要直接上线",
+        "不宜直接上线",
+        "不建议直接上线",
+        "不具备直接上线条件"
+      ]
+    ],
+    "must_not_contain": [
+      "确认这个理解是否正确",
+      "- [ ]",
+      "Issue:",
+      "请分析",
+      "请补充",
+      "请协助",
+      "请确认"
+    ]
+  },
+  {
+    "id": "general_pace_control_refine",
+    "input": "目前方向可以继续往前推 但我建议先把验证数据和灰度范围定下来 先不要一下子全面铺开",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "general"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_groups": [
+      [
+        "继续往前推",
+        "继续推进"
+      ],
+      [
+        "验证数据",
+        "灰度范围"
+      ],
+      [
+        "建议",
+        "先建议",
+        "更稳妥"
+      ],
+      [
+        "不要",
+        "先不要",
+        "不要一下子全面铺开",
+        "避免直接全面铺开",
+        "暂缓全面铺开",
+        "暂缓"
+      ]
+    ],
+    "must_not_contain": [
+      "确认这个理解是否正确",
+      "- [ ]",
+      "Issue:",
+      "请分析",
+      "请补充",
+      "请协助",
+      "请确认"
+    ]
+  },
+  {
+    "id": "question_focus_refine",
+    "input": "推理一下这个安装说明 从用户角度看 是否能理解如何安装和使用 还缺哪些说明",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "question"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_groups": [
+      [
+        "安装",
+        "说明"
+      ],
+      [
+        "用户",
+        "流程",
+        "易用性",
+        "理解"
+      ],
+      [
+        "缺少",
+        "缺失",
+        "还缺",
+        "关键信息"
+      ]
+    ],
+    "must_not_contain": [
+      "收到",
+      "我会",
+      "- [ ]"
+    ]
+  },
+  {
+    "id": "parse_fail_fallback",
+    "input": "整理配套的架构设计文档",
+    "expected_status": "fallback",
+    "allowed_scenes": [
+      ""
+    ],
+    "allowed_formats": [
+      ""
+    ],
+    "must_contain_all": [
+      "[AI 提纯解析失败:"
+    ],
+    "force_parse_fail": true
+  },
+  {
+    "id": "doc_multiline_structure_refine",
+    "input": "1、根据以下的选择更新方案文档\n资产精准拉取  方案 A：新增 GET /gotchas/:id 接口\n远端 URL 注入方式  方案 B（环境变量）+ 方案 C（IDE 配置的 env 字段）\n2、文档更新结束后  需要使用context7和github相关资料评审 确保文档使用的是最佳实践",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "doc"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_groups": [
+      [
+        "资产精准拉取",
+        "GET /gotchas/:id"
+      ],
+      [
+        "远端 URL 注入方式",
+        "环境变量",
+        "env 字段"
+      ],
+      [
+        "context7",
+        "GitHub",
+        "最佳实践"
+      ]
+    ],
+    "must_not_contain": [
+      "- [ ]",
+      "Issue:"
+    ],
+    "custom_assertions": {
+      "min_newlines": 2
+    },
+    "expected_structure_mode": "structured"
+  },
+  {
+    "id": "task_single_point_inline",
+    "input": "把版本号同步到项目根目录。",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "task"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "expected_structure_mode": "inline",
+    "must_contain_groups": [
+      [
+        "版本号"
+      ]
+    ],
+    "must_not_contain": [
+      "- [ ]",
+      "Issue:"
+    ],
+    "custom_assertions": {
+      "max_newlines": 0
+    }
+  },
+  {
+    "id": "question_single_point_inline",
+    "input": "我要操作什么按键才能满足这个需求？",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "question"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "expected_structure_mode": "inline",
+    "must_contain_any": [
+      "?",
+      "？"
+    ],
+    "must_not_contain": [
+      "- [ ]"
+    ],
+    "custom_assertions": {
+      "max_newlines": 0
+    }
+  },
+  {
+    "id": "doc_single_point_inline",
+    "input": "整理一份安装说明文档。",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "doc"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "must_contain_groups": [
+      [
+        "安装说明",
+        "文档"
+      ]
+    ],
+    "must_not_contain": [
+      "- [ ]",
+      "Issue:"
+    ]
+  },
+  {
+    "id": "general_single_point_inline",
+    "input": "这个方向基本可行，但先保留意见。",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "general"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "expected_structure_mode": "inline",
+    "must_contain_groups": [
+      [
+        "可行",
+        "方向"
+      ],
+      [
+        "保留意见",
+        "暂不下结论",
+        "进一步评估"
+      ]
+    ],
+    "must_not_contain": [
+      "请分析",
+      "- [ ]"
+    ],
+    "custom_assertions": {
+      "max_newlines": 0
+    }
+  },
+  {
+    "id": "discussion_confirm_single_point_inline",
+    "input": "我理解现在是两阶段架构，你确认一下这个理解是否正确。",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "discussion_confirm"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "expected_structure_mode": "inline",
+    "must_contain_groups": [
+      [
+        "理解",
+        "两阶段"
+      ],
+      [
+        "确认",
+        "是否正确",
+        "是否准确"
+      ]
+    ],
+    "must_not_contain": [
+      "- [ ]"
+    ],
+    "custom_assertions": {
+      "max_newlines": 0
+    }
+  },
+  {
+    "id": "feedback_meta_single_point_inline",
+    "input": "后续沟通请直接进入任务，不要寒暄。",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "feedback_meta"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "expected_structure_mode": "inline",
+    "must_contain_groups": [
+      [
+        "后续",
+        "直接进入任务"
+      ],
+      [
+        "不要",
+        "寒暄"
+      ]
+    ],
+    "must_not_contain": [
+      "收到",
+      "我会",
+      "- [ ]"
+    ],
+    "custom_assertions": {
+      "max_newlines": 0
+    }
+  },
+  {
+    "id": "task_multi_step_structured",
+    "input": "先补全安装文档里的版本说明，再更新 RELEASE_NOTES，最后重新发布安装包，并把结果回传给我。",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "task"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "expected_structure_mode": "structured",
+    "must_contain_groups": [
+      [
+        "安装文档",
+        "版本说明"
+      ],
+      [
+        "RELEASE_NOTES"
+      ],
+      [
+        "安装包",
+        "发布"
+      ]
+    ],
+    "must_not_contain": [
+      "- [ ]"
+    ],
+    "custom_assertions": {
+      "min_newlines": 2
+    }
+  },
+  {
+    "id": "question_multi_dimension_structured",
+    "input": "请你从用户理解成本、实施复杂度和后续维护成本三个角度，分析现在这个安装器方案是否合理，还缺哪些关键设计。",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "question"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "expected_structure_mode": "structured",
+    "must_contain_groups": [
+      [
+        "用户",
+        "理解成本"
+      ],
+      [
+        "实施复杂度"
+      ],
+      [
+        "维护成本"
+      ],
+      [
+        "还缺",
+        "缺哪些",
+        "关键设计"
+      ],
+      [
+        "?",
+        "？"
+      ]
+    ],
+    "must_not_contain": [
+      "- [ ]"
+    ],
+    "custom_assertions": {
+      "min_newlines": 2
+    }
+  },
+  {
+    "id": "doc_multi_update_structured",
+    "input": "更新架构文档：第一，补充代理配置的运行链路；第二，补充图形化安装器的交互流程；第三，补充默认直连与受限网络的边界说明。更新后再做一轮最佳实践复核。",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "doc"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "expected_structure_mode": "structured",
+    "must_contain_groups": [
+      [
+        "代理配置",
+        "运行链路"
+      ],
+      [
+        "图形化安装器",
+        "交互流程"
+      ],
+      [
+        "默认直连",
+        "受限网络"
+      ],
+      [
+        "最佳实践",
+        "复核"
+      ]
+    ],
+    "must_not_contain": [
+      "- [ ]"
+    ],
+    "custom_assertions": {
+      "min_newlines": 2
+    }
+  },
+  {
+    "id": "general_multi_concern_structured",
+    "input": "整体方向可行，但版本管理、代理配置和文档同步这三个点还没有完全收口，先不要急着发版。",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "general"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "expected_structure_mode": "structured",
+    "must_contain_groups": [
+      [
+        "整体方向",
+        "可行"
+      ],
+      [
+        "版本管理"
+      ],
+      [
+        "代理配置"
+      ],
+      [
+        "文档同步"
+      ],
+      [
+        "不要急着发版",
+        "暂缓发版",
+        "先不要发版"
+      ]
+    ],
+    "must_not_contain": [
+      "请分析",
+      "- [ ]"
+    ],
+    "custom_assertions": {
+      "min_newlines": 2
+    }
+  },
+  {
+    "id": "discussion_confirm_multi_point_structured",
+    "input": "我当前理解是这样：第一，安装默认走直连；第二，代理要单独通过配置代理.command处理；第三，代理只影响 Voice2Code 当前请求链路。你确认这三个点是不是都对。",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "discussion_confirm"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "expected_structure_mode": "structured",
+    "must_contain_groups": [
+      [
+        "安装",
+        "直连"
+      ],
+      [
+        "配置代理.command",
+        "代理"
+      ],
+      [
+        "只影响",
+        "仅影响",
+        "当前请求链路",
+        "当前的请求链路"
+      ],
+      [
+        "确认",
+        "是否都对",
+        "是否准确"
+      ]
+    ],
+    "must_not_contain": [
+      "- [ ]"
+    ],
+    "custom_assertions": {
+      "min_newlines": 2
+    }
+  },
+  {
+    "id": "feedback_meta_multi_constraint_structured",
+    "input": "后续沟通请按这个方式来：第一，直接进入任务；第二，结论要先给；第三，不要写没必要的寒暄和总结。",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "feedback_meta"
+    ],
+    "allowed_formats": [
+      "plain"
+    ],
+    "expected_structure_mode": "structured",
+    "must_contain_groups": [
+      [
+        "直接进入任务"
+      ],
+      [
+        "结论",
+        "先给"
+      ],
+      [
+        "不要",
+        "寒暄",
+        "总结"
+      ]
+    ],
+    "must_not_contain": [
+      "收到",
+      "我会",
+      "- [ ]"
+    ],
+    "custom_assertions": {
+      "min_newlines": 2
+    }
+  },
+  {
+    "id": "task_en_refine",
+    "input": "If the API returns 500, first check whether it timed out. Retry three times on timeout. Otherwise, return the error to the frontend.",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "task",
+      "general"
+    ],
+    "expected_contract_language": "en-US",
+    "must_contain_all": [
+      "500",
+      "timeout",
+      "retry"
+    ],
+    "must_contain_any": [
+      "frontend",
+      "front end"
+    ],
+    "must_not_contain": [
+      "请",
+      "中文"
+    ]
+  },
+  {
+    "id": "question_en_logs_api",
+    "input": "Do we already store logs for what the terminal just executed, and if there is an API for that data, can I call it directly when I rebuild the page?",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "question"
+    ],
+    "expected_contract_language": "en-US",
+    "must_contain_any": [
+      "?",
+      "terminal",
+      "API"
+    ],
+    "must_not_contain": [
+      "请",
+      "分析任务"
+    ]
+  },
+  {
+    "id": "discussion_confirm_en_architecture",
+    "input": "I want to confirm my understanding: the current architecture has two layers. The first layer handles intent routing and the second layer handles AI refinement. Is that correct?",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "discussion_confirm",
+      "question"
+    ],
+    "expected_contract_language": "en-US",
+    "must_contain_groups": [
+      [
+        "two layers",
+        "first layer"
+      ],
+      [
+        "second layer",
+        "AI refinement",
+        "AI rewriting"
+      ],
+      [
+        "correct",
+        "accurate",
+        "is that right",
+        "does it consist"
+      ]
+    ],
+    "must_not_contain": [
+      "收到",
+      "- [ ]"
+    ]
+  },
+  {
+    "id": "doc_en_architecture",
+    "input": "Please draft the supporting architecture design document. The current architecture has two layers: the first layer handles intent analysis and the second layer handles AI refinement. Clarify what the document should contain.",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "doc",
+      "task"
+    ],
+    "expected_contract_language": "en-US",
+    "must_contain_groups": [
+      [
+        "document",
+        "architecture"
+      ],
+      [
+        "intent",
+        "analysis"
+      ],
+      [
+        "AI refinement",
+        "AI rewriting"
+      ]
+    ],
+    "must_not_contain": [
+      "知识库",
+      "中间层"
+    ]
+  },
+  {
+    "id": "general_en_soft_feedback",
+    "input": "The direction seems mostly right, but the logical order still needs work. Do not rush to conclusions.",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "general"
+    ],
+    "expected_contract_language": "en-US",
+    "must_contain_groups": [
+      [
+        "direction",
+        "right"
+      ],
+      [
+        "logical order",
+        "logic"
+      ],
+      [
+        "do not rush",
+        "don't rush",
+        "avoid rushing"
+      ]
+    ],
+    "must_not_contain": [
+      "请",
+      "请确认"
+    ]
+  },
+  {
+    "id": "feedback_meta_en_style",
+    "input": "For future communication, go straight into the task, lead with the conclusion, and skip unnecessary greetings or summaries.",
+    "expected_status": "success",
+    "allowed_scenes": [
+      "feedback_meta",
+      "general"
+    ],
+    "expected_contract_language": "en-US",
+    "must_contain_groups": [
+      [
+        "straight into the task",
+        "go straight",
+        "state the task"
+      ],
+      [
+        "conclusion",
+        "lead with"
+      ],
+      [
+        "greetings",
+        "summaries",
+        "summary"
+      ]
+    ],
+    "must_not_contain": [
+      "收到",
+      "- [ ]"
+    ]
+  }
+]

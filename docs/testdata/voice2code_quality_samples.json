@@ -1,0 +1,18 @@
+{
+  "zh": [
+    "task_timeout_retry",
+    "question_checklist",
+    "discussion_confirm_architecture",
+    "doc_architecture",
+    "general_soft_feedback",
+    "feedback_meta_style"
+  ],
+  "en": [
+    "task_en_refine",
+    "question_en_logs_api",
+    "discussion_confirm_en_architecture",
+    "doc_en_architecture",
+    "general_en_soft_feedback",
+    "feedback_meta_en_style"
+  ]
+}

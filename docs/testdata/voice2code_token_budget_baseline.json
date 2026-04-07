@@ -1,0 +1,54 @@
+{
+  "summary": {
+    "sample_count": 4,
+    "intent_prompt_token_avg": 369.5,
+    "generation_prompt_token_avg": 524.2,
+    "total_latency_ms_avg": 3755.5
+  },
+  "samples": [
+    {
+      "id": "task_plain_refine",
+      "input": "如果接口返回500就先判断是不是超时 超时就重试三次 不是超时就直接报错给前端",
+      "status": "success",
+      "main_scene": "task",
+      "resolved_rewrite_id": "clarify",
+      "intent_prompt_token_count": 370,
+      "generation_prompt_token_count": 473,
+      "total_latency_ms": 3498,
+      "final_output": "在接口返回 500 错误时，请先判断是否为超时错误：若是超时，则执行重试逻辑（重试三次）；若非超时，则直接将错误信息返回给前端。"
+    },
+    {
+      "id": "question_focus_refine",
+      "input": "推理一下这个安装说明 从用户角度看 是否能理解如何安装和使用 还缺哪些说明",
+      "status": "success",
+      "main_scene": "question",
+      "resolved_rewrite_id": "clarify",
+      "intent_prompt_token_count": 367,
+      "generation_prompt_token_count": 545,
+      "total_latency_ms": 3401,
+      "final_output": "请从用户视角评估这份安装说明，判断其在安装与使用流程上是否清晰易懂，并指出当前文档中缺失的关键说明信息。"
+    },
+    {
+      "id": "doc_action_refine",
+      "input": "整理配套的架构设计文档 当前架构分为两层 第一层负责意图分析 第二层负责AI转写 请补充清楚文档应该产出什么内容",
+      "status": "success",
+      "main_scene": "doc",
+      "resolved_rewrite_id": "clarify",
+      "intent_prompt_token_count": 379,
+      "generation_prompt_token_count": 553,
+      "total_latency_ms": 4430,
+      "final_output": "请为当前架构设计文档补充配套内容。当前架构分为两层：第一层负责意图分析，第二层负责AI转写。请明确该文档应包含的具体产出内容，包括但不限于各层级的职责定义、交互流程及技术实现细节。"
+    },
+    {
+      "id": "general_focus_refine",
+      "input": "这个实现方向差不多 但是逻辑顺序还需要再理一下 不要太快下结论",
+      "status": "success",
+      "main_scene": "general",
+      "resolved_rewrite_id": "clarify",
+      "intent_prompt_token_count": 362,
+      "generation_prompt_token_count": 526,
+      "total_latency_ms": 3693,
+      "final_output": "目前的实现方向基本可行，但逻辑顺序仍需进一步梳理。请放慢节奏，不要过早下结论。"
+    }
+  ]
+}
