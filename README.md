@@ -32,6 +32,60 @@ Voice2Code keeps the interaction local and lightweight, then uses an LLM to turn
   - bilingual contracts
   - provider-neutral execution
 
+## Core Flow
+
+```mermaid
+flowchart LR
+    A["Selected text"] --> B["Quick Action"]
+    B --> C["Preprocess + RequestContext"]
+    C --> D["Intent Router"]
+    D --> E["Resolved Contract"]
+    E --> F["Prompt Assembler"]
+    F --> G["LLM Generation"]
+    G --> H["Parser / Validator"]
+    H --> I["Replace selected text"]
+```
+
+This is the core value of the project:
+
+- keep the entry point simple
+- keep routing minimal
+- keep generation contract-driven
+- return a directly usable result back into the current text field
+
+## Why The Contract Layer Matters
+
+```mermaid
+flowchart LR
+    A["RequestContext"] --> B["IntentAnalysisResult"]
+    B --> C1["main_scene"]
+    B --> C2["structure_mode"]
+    D["forced_rewrite_strategy"] --> C3["rewrite_id"]
+
+    subgraph R["Resolved Contract"]
+        C1 --> R1["scene_policies"]
+        C2 --> R2["structure_policies"]
+        C3 --> R3["rewrite_policies"]
+    end
+
+    G["global_contract"] --> H["Prompt Assembler"]
+    R1 --> H
+    R2 --> H
+    R3 --> H
+    I["runtime_context"] --> H
+    J["glossary_result"] --> H
+    K["user_input"] --> H
+
+    H --> L["PromptBundle"]
+    L --> M["LLM output"]
+```
+
+This is where Voice2Code is better than a simple single-prompt rewrite tool:
+
+- stage 1 only decides the minimum routing fields
+- stage 2 does **minimal dynamic assembly**, not full template stuffing
+- local code does deterministic parsing and validation, instead of semantic over-correction
+
 ## Current Shape
 
 Current delivery shape:
