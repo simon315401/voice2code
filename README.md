@@ -103,25 +103,6 @@ Current provider state:
 - OpenAI is integrated and minimally validated
 - Doubao is integrated in code but still needs real-key validation
 
-## Current Boundaries
-
-This repository is in **closeout / stabilization** phase.
-
-In scope:
-
-- stable install flow
-- Quick Action registration
-- initialization flow
-- provider selection / network config / connectivity test
-- regression, token smoke, and quality evaluation assets
-
-Not a current release gate:
-
-- full macOS app notarization
-- complete `SecItem* + codesign + entitlement` delivery
-- stronger system-level secret persistence guarantees
-- plugin productization
-
 ## Quick Start
 
 Build the current installer locally:
@@ -136,40 +117,11 @@ Main references:
 - [Architecture](docs/Voice2Code_Architecture.md)
 - [Implementation Checklist](docs/Voice2Code_Implementation_Checklist.md)
 - [Project Closeout Checklist](docs/Voice2Code_Project_Closeout_Checklist.md)
+- [Contributing](CONTRIBUTING.md)
 
 ## Demo
 
 ![Voice2Code demo flow](docs/assets/voice2code-demo.svg)
-
-## What It Does
-
-Voice2Code is designed for the common workflow:
-
-1. dictate or paste rough text into any macOS text field
-2. select the text
-3. trigger the Quick Action
-4. replace the selection with a cleaner, structured instruction
-
-Typical use cases:
-
-- refining spoken engineering tasks into implementation-ready text
-- turning rough notes into clearer issue / PR / TODO language
-- normalizing bilingual Chinese / English developer input
-
-## Current Architecture
-
-Core behavior:
-
-- two-stage refinement pipeline
-  - stage 1: minimal routing (`main_scene`, `structure_mode`)
-  - stage 2: resolved contract generation
-- bilingual contracts
-  - Chinese input -> `zh-CN`
-  - English input -> `en-US`
-- provider-neutral AI service layer
-  - `gemini`
-  - `openai`
-  - `doubao`
 
 ## Install Shape
 
@@ -194,6 +146,25 @@ Top-level folders:
 - [`docs/`](docs/) architecture, PRD, implementation and closeout docs
 - [`scripts/`](scripts/) build, installer, app shell, and refiner code
 - [`tests/`](tests/) regression, smoke, and evaluation tooling
+
+## Current Boundaries
+
+This repository is in **closeout / stabilization** phase.
+
+In scope:
+
+- stable install flow
+- Quick Action registration
+- initialization flow
+- provider selection / network config / connectivity test
+- regression, token smoke, and quality evaluation assets
+
+Not a current release gate:
+
+- full macOS app notarization
+- complete `SecItem* + codesign + entitlement` delivery
+- stronger system-level secret persistence guarantees
+- plugin productization
 
 ## Build and Validation
 
