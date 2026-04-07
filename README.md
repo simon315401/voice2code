@@ -1,5 +1,7 @@
 # Voice2Code
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 Voice2Code is a macOS-focused voice-to-instruction refiner for developer workflows.
 
 [Latest Release](https://github.com/simon315401/voice2code/releases/latest) · [Download Installer](https://github.com/simon315401/voice2code/releases/latest/download/Voice2Code_%E5%AE%89%E8%A3%85%E5%8C%85_v0.3.8.zip) · [Report Issues](https://github.com/simon315401/voice2code/issues)
