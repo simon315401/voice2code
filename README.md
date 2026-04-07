@@ -1,12 +1,87 @@
 # Voice2Code
 
-Voice2Code is a macOS-focused voice-to-instruction refiner for developer workflows. It keeps the current product shape intentionally small:
+Voice2Code is a macOS-focused voice-to-instruction refiner for developer workflows.
 
-- `AI提纯指令.workflow` provides the cross-app Quick Action entry point
-- `Voice2Code.app` acts as the minimal settings and runtime control shell
-- the local Python refiner core handles intent routing, dynamic prompt assembly, bilingual contracts, and provider-neutral LLM execution
+It is built for a simple workflow:
 
-The current release goal is **stable local delivery**, not a fully packaged notarized macOS app.
+1. dictate or paste rough text into any macOS text field
+2. select the text
+3. trigger a Quick Action
+4. replace the selection with a cleaner instruction
+
+## Why This Exists
+
+Voice input is fast, but spoken engineering text is usually noisy:
+
+- filler words
+- misrecognized technical terms
+- weak structure
+- unclear action / condition / scope boundaries
+
+Voice2Code keeps the interaction local and lightweight, then uses an LLM to turn rough text into something you can actually reuse in engineering workflows.
+
+## Highlights
+
+- **Cross-app Quick Action**
+  Works through `AI提纯指令.workflow`, so the same trigger can be used across macOS text fields.
+- **Minimal app shell**
+  `Voice2Code.app` is only a small control shell for setup, provider selection, network config, and runtime entry.
+- **Structured refinement core**
+  The Python refiner core keeps the current architecture focused on:
+  - two-stage intent + generation
+  - bilingual contracts
+  - provider-neutral execution
+
+## Current Shape
+
+Current delivery shape:
+
+- `Quick Action + Voice2Code.app`
+
+Current release goal:
+
+- **stable local delivery**
+- not a fully packaged notarized macOS app
+
+Current provider state:
+
+- Gemini is the primary release baseline
+- OpenAI is integrated and minimally validated
+- Doubao is integrated in code but still needs real-key validation
+
+## Current Boundaries
+
+This repository is in **closeout / stabilization** phase.
+
+In scope:
+
+- stable install flow
+- Quick Action registration
+- initialization flow
+- provider selection / network config / connectivity test
+- regression, token smoke, and quality evaluation assets
+
+Not a current release gate:
+
+- full macOS app notarization
+- complete `SecItem* + codesign + entitlement` delivery
+- stronger system-level secret persistence guarantees
+- plugin productization
+
+## Quick Start
+
+Build the current installer locally:
+
+```bash
+python3 scripts/build_dist.py
+```
+
+Main references:
+
+- [PRD](docs/Voice2Code_PRD.md)
+- [Architecture](docs/Voice2Code_Architecture.md)
+- [Implementation Checklist](docs/Voice2Code_Implementation_Checklist.md)
+- [Project Closeout Checklist](docs/Voice2Code_Project_Closeout_Checklist.md)
 
 ## What It Does
 
@@ -25,10 +100,6 @@ Typical use cases:
 
 ## Current Architecture
 
-Current delivery shape:
-
-- `Quick Action + Voice2Code.app`
-
 Core behavior:
 
 - two-stage refinement pipeline
@@ -41,31 +112,6 @@ Core behavior:
   - `gemini`
   - `openai`
   - `doubao`
-
-Current baseline:
-
-- Gemini is the primary release baseline
-- OpenAI is integrated and minimally validated
-- Doubao is integrated in code but still needs real-key validation
-
-## Project Status
-
-This repository is in **closeout / stabilization** phase.
-
-What is intentionally in scope:
-
-- stable install flow
-- Quick Action registration
-- initialization flow
-- provider selection / network config / connectivity test
-- regression, token smoke, and quality evaluation assets
-
-What is intentionally *not* a current release gate:
-
-- full macOS app notarization
-- complete `SecItem* + codesign + entitlement` delivery
-- stronger system-level secret persistence guarantees
-- plugin productization
 
 ## Install Shape
 
@@ -90,13 +136,6 @@ Top-level folders:
 - [`docs/`](docs/) architecture, PRD, implementation and closeout docs
 - [`scripts/`](scripts/) build, installer, app shell, and refiner code
 - [`tests/`](tests/) regression, smoke, and evaluation tooling
-
-Recommended starting points:
-
-- [PRD](docs/Voice2Code_PRD.md)
-- [Architecture](docs/Voice2Code_Architecture.md)
-- [Implementation Checklist](docs/Voice2Code_Implementation_Checklist.md)
-- [Project Closeout Checklist](docs/Voice2Code_Project_Closeout_Checklist.md)
 
 ## Build and Validation
 
